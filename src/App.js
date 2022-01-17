@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.scss";
 
@@ -22,7 +22,6 @@ function App() {
       .then((res) => res.json())
       .then((json) => {
         if (json.message) {
-          // In case there are additional problems
           throw new Error(json.message);
         } else {
           setData(json);
@@ -41,7 +40,7 @@ function App() {
       <Router>
         <Header />
         {!loading ? (
-          <Switch>
+          <Routes>
             <Route exact path="/">
               {!error ? (
                 data && <Homepage data={data} />
@@ -64,7 +63,7 @@ function App() {
             <Route exact path="/:code">
               <ErrorPage error={error} />
             </Route>
-          </Switch>
+          </Routes>
         ) : (
           <div className="loader-cont">
             <div className="loader-animation"></div>
