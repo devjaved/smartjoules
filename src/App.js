@@ -7,7 +7,6 @@ import CountryPage from "./pages/CountryPage";
 import ErrorPage from "./pages/ErrorPage";
 import Homepage from "./pages/Homepage";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 localStorage.removeItem("region");
 localStorage.removeItem("countries");
@@ -72,7 +71,6 @@ function App() {
           </div>
         )}
       </Router>
-      <Footer />
     </div>
   );
 }
